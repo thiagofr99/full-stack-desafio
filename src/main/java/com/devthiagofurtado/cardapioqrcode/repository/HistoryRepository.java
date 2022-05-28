@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface HistoryRepository extends JpaRepository<History, Long> {
 
     @Query("SELECT h FROM History h WHERE h.word = :word")
-    Optional<History> findByPalavra(@Param("word") Palavra word);
+    Optional<History> findByPalavra(Palavra word);
 }
