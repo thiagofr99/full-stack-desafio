@@ -3,10 +3,9 @@ package com.devthiagofurtado.cardapioqrcode.data.vo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.dozermapper.core.Mapping;
 import lombok.*;
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -14,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioVO extends ResourceSupport implements Serializable {
+public class UsuarioVO extends RepresentationModel<UsuarioVO> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

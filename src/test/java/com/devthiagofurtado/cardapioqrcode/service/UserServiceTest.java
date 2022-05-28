@@ -52,11 +52,6 @@ class UserServiceTest {
         BDDMockito.when(userDetailsService.loadUserByUsername(ArgumentMatchers.anyString()))
                 .thenReturn(UserModelCreator.userDetails(UserModelCreator.cadastrado(null, UserModelCreator.permissions(PermissionVO.ADMIN), true)));
 
-        BDDMockito.when(userRepository.findAllByUserName(ArgumentMatchers.anyString(), ArgumentMatchers.any(Pageable.class)))
-                .thenReturn(new PageImpl<>(Collections.singletonList(UserModelCreator.cadastrado(LocalDate.now(),
-                        UserModelCreator.permissions(PermissionVO.ADMIN),
-                        true))));
-
     }
 
     @Test

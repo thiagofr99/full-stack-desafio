@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tab_palavras")
-public class Palavra implements Serializable {
+@Table(name = "history")
+public class History implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,7 +22,9 @@ public class Palavra implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "palavra")
-    private String palavra;
+    private LocalDateTime added;
 
+    @ManyToOne
+    @JoinColumn(name = "palavra_id")
+    private Palavra word;
 }
