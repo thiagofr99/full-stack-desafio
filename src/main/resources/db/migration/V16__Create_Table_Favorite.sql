@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `history` (
+CREATE TABLE IF NOT EXISTS `favorite` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `added` datetime DEFAULT NULL,
   `palavra_id` BIGINT(20) DEFAULT NULL,

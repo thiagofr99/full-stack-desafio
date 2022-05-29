@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "history")
-public class History implements Serializable {
+@Table(name = "favorite")
+public class Favorite implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,6 @@ public class History implements Serializable {
     @ManyToOne
     @JoinColumn(name = "palavra_id")
     private Palavra word;
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
