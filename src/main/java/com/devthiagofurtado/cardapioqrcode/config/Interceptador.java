@@ -14,18 +14,14 @@ public class Interceptador implements HandlerInterceptor {
 
     private long tempoInicial;
 
-    private long tempoExecucao;
-
-
-
-
+    
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         tempoInicial = System.currentTimeMillis();
 
         response.addHeader("x-cache", "HIT");
-        response.addHeader("x-response", "");
+        response.addHeader("x-response-time", "");
         response.addHeader("tempoInicial", Long.toString(tempoInicial));
 
         return true;

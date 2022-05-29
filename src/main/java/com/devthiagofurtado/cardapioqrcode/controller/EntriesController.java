@@ -76,7 +76,7 @@ public class EntriesController {
 
 
         long tempoFinal = System.currentTimeMillis()- Long.parseLong(response.getHeader("tempoInicial"));
-        response.setHeader("x-response", Long.toString(tempoFinal));
+        response.setHeader("x-response-time", Long.toString(tempoFinal));
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
 
