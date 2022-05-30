@@ -28,5 +28,5 @@ public class RedisDemoConfiguration {
                 .withCacheConfiguration("customerCache",
                         RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(5)));
     }
-
+    
 }
