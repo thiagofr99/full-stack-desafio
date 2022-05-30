@@ -28,13 +28,6 @@ public class WelcomeController {
     @GetMapping(produces = {"application/json", "application/xml", "application/x-yaml"})
     public ResponseEntity<MensagemVO> welcome() throws InvalidJwtAuthenticationException {
 
-        String token = HeaderUtil.obterToken();
-        if (StringUtils.hasText(token)) {
-            tokenProvider.validateToken(token.substring(7, token.length()));
-        } else {
-            throw new InvalidJwtAuthenticationException("Expired or invalid JWT token");
-        }
-
         var msg = MensagemVO.builder()
                 .mensagem("Fullstack Challenge \uD83C\uDFC5 - Dictionary")
                 .build();
