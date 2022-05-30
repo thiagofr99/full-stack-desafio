@@ -17,6 +17,14 @@ services:
       - "3308:3306"
     networks:
       - udemy-network
+  cache:    
+    image: redis
+    restart: always
+    command: redis-server 
+    ports:
+      - "6379:6379"    
+    networks:
+      - udemy-network    
   full-stack-challenge:
     image: devthiagofurtado/full-stack-challenge
     restart: always
@@ -33,15 +41,10 @@ services:
     command: mvn clean spring-boot:run
     links:
       - db
+      - cache
     depends_on:
       - db
-    networks:
-      - udemy-network
-  redis:    
-    image: redis
-    command: redis-server 
-    ports:
-      - "6379:6379"    
+      - cache
     networks:
       - udemy-network
 networks:
