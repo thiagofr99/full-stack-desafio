@@ -10,8 +10,7 @@ deploy:
   provider: script
   script:
     docker push devthiagofurtado/mysql-full-stack-challenge;
-    docker push devthiagofurtado/full-stack-challenge;
-    devthiagofurtado/redis-full-stack-challenge;
+    docker push devthiagofurtado/full-stack-challenge;    
   on:
     branch: main
 notifications:
