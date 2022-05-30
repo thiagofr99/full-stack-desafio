@@ -37,9 +37,9 @@ services:
       - db
     networks:
       - udemy-network
-  redis:
-    image: redis    
-    command: redis-server Redis2019!
+  redis:    
+    image: redis
+    command: redis-server --requirepass Redis2019!
     ports:
       - "6379:6379"    
 networks:
