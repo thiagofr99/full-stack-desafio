@@ -91,3 +91,5 @@ A seguinte tela deve abrir:
 
 ## 🎁 Expressões de gratidão
 Agradeço a @Coodesh pela oportunidade de desenvolver e aplicar novos conhecimentos nesse desafio o qual me proporcionou novas vivências e aprendizados.
+
+> This is a challenge by <a href="https://coodesh.com">Coodesh</a> 
