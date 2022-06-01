@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface PalavraRepository extends JpaRepository<Palavra, Long> {
 
 
-    @Query(nativeQuery = true, value = "SELECT * FROM tab_palavras WHERE palavra LIKE CONCAT('%', ?1 ,'%')")
+    @Query(nativeQuery = true, value = "SELECT * FROM tab_palavras WHERE palavra LIKE CONCAT('%', ?1 ,'%') AND palavra REGEXP '[A-Z][AEIOU]' AND palavra NOT LIKE CONCAT('%', ' ' ,'%') AND palavra NOT LIKE CONCAT('%', '-' ,'%')")
     Page<Palavra> findAllByWord(String palavra, Pageable pageable);
 
     @Query(nativeQuery = true, value = "SELECT * FROM tab_palavras WHERE palavra = ?1 ")

@@ -60,7 +60,8 @@ public class UserController {
 
     @Operation(summary = "Find favorites Word of User")
     @GetMapping(value = "/favorites", produces = {"application/json", "application/xml", "application/x-yaml"})
-    public ResponseEntity<PageVO> findFavoritesMe(@RequestParam(value = "page", defaultValue = "0") int page) throws InvalidJwtAuthenticationException {
+    public ResponseEntity<PageVO> findFavoritesMe(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                  @RequestParam(value = "limit", defaultValue = "0") int limit) throws InvalidJwtAuthenticationException {
         String token = HeaderUtil.obterToken();
         String userName = "";
         if (StringUtils.hasText(token)) {
@@ -70,7 +71,7 @@ public class UserController {
             throw new InvalidJwtAuthenticationException(UtilMensagem.EXPIRED_OR_INVALID_JWT_TOKEN);
         }
 
-        Pageable pageable = PageRequest.of(page, 4, Sort.by(Sort.Direction.ASC, "added"));
+        Pageable pageable = PageRequest.of(page, limit, Sort.by(Sort.Direction.ASC, "added"));
         var results = userService.returnFavoritesUser(userName, pageable);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
@@ -79,7 +80,8 @@ public class UserController {
 
     @Operation(summary = "Find histories Word of User")
     @GetMapping(value = "/history", produces = {"application/json", "application/xml", "application/x-yaml"})
-    public ResponseEntity<PageVO> findHistoryMe(@RequestParam(value = "page", defaultValue = "0") int page) throws InvalidJwtAuthenticationException {
+    public ResponseEntity<PageVO> findHistoryMe(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                @RequestParam(value = "limit", defaultValue = "4") int limit) throws InvalidJwtAuthenticationException {
         String token = HeaderUtil.obterToken();
         String userName = "";
         if (StringUtils.hasText(token)) {
@@ -89,7 +91,7 @@ public class UserController {
             throw new InvalidJwtAuthenticationException(UtilMensagem.EXPIRED_OR_INVALID_JWT_TOKEN);
         }
 
-        Pageable pageable = PageRequest.of(page, 4, Sort.by(Sort.Direction.ASC, "added"));
+        Pageable pageable = PageRequest.of(page, limit, Sort.by(Sort.Direction.ASC, "added"));
         var results = userService.returnHistoryUser(userName, pageable);
 
         return new ResponseEntity<>(results, HttpStatus.OK);
